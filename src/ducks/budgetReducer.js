@@ -11,6 +11,7 @@ const REQUEST_BUDGET_DATA = 'REQUEST_BUDGET_DATA'
 const ADD_PURCHASE = 'ADD_PURCHASE'
 const REMOVE_PURCHASE = 'REMOVE_PURCHASE'
 
+
 export const requestBudgetData = () => {
   let data = axios.get('/api/budget-data').then(res => res.data)
   return{
@@ -43,7 +44,7 @@ export const removePurchase = (id) => {
         return{...state,...action.payload,loading: false}
       case ADD_PURCHASE + '_PENDING':
         return{...state,loading: true}
-      case ADD_PURCHASE + '_FULFILED':
+      case ADD_PURCHASE + '_FULFILLED':
         return{...state,purchases: action.payload,loading: false}
       case REMOVE_PURCHASE + '_PENDING':
         return{...state,loading: true}
